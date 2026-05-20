@@ -6,7 +6,13 @@ spring:
     name: GATEWAY-SERVICE
 
   cloud:
+
     gateway:
+
+      discovery:
+        locator:
+          enabled: true
+
       routes:
 
         - id: product-service
