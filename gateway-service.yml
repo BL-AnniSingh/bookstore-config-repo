@@ -15,15 +15,27 @@ spring:
 
       routes:
 
-        - id: product-service
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/auth/**
 
+        - id: PRODUCT-SERVICE
           uri: lb://PRODUCT-SERVICE
-
           predicates:
             - Path=/api/products/**
+
+        - id: ORDER-SERVICE
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/orders/**
+
+        - id: CART-SERVICE
+          uri: lb://CART-SERVICE
+          predicates:
+            - Path=/api/cart/**
 
 eureka:
   client:
     service-url:
-      defaultZone:
-        http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
