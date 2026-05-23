@@ -13,25 +13,19 @@ spring:
 
       auto-offset-reset: earliest
 
-      key-deserializer:
-        org.apache.kafka.common.serialization.StringDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
-      value-deserializer:
-        org.springframework.kafka.support.serializer.JsonDeserializer
-
-      properties:
-
-        spring.json.trusted.packages: "*"
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
   mail:
 
     host: smtp.gmail.com
 
-    port: 587
+    port: 465
 
     username: anni28132@gmail.com
 
-    password:ztew yzwk ccsc ivxn
+    password: ztewyzwkccscivxn
 
     properties:
 
@@ -41,9 +35,15 @@ spring:
 
           auth: true
 
-          starttls:
+          ssl:
 
             enable: true
+
+          connectiontimeout: 5000
+
+          timeout: 5000
+
+          writetimeout: 5000
 
 eureka:
 
@@ -51,5 +51,4 @@ eureka:
 
     service-url:
 
-      defaultZone:
-        http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
